@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import reqHandler from '../../utils/reqHandler'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import DeleteProductFromOrder from './DeleteProductFromOrder'
 import observer from '../../utils/observer'
 
 
@@ -36,7 +34,7 @@ class CartProduct extends Component {
                 this.setState({productInfo})
                 this.setState({total : productInfo.price})
                 this.props.calculateOrderTotal(this.state.total)
-            })
+            }).catch(err => console.log(err))
     }
 
     deleteProductFromOrder = () => {
@@ -52,10 +50,10 @@ class CartProduct extends Component {
                                 observer.trigger(observer.events.notification, { type: 'success', message: "Продуктът беше премахнат от Вашата поръчка !" })
                                 setTimeout(function () { observer.trigger(observer.events.hide) }, 3000);
                                 this.setState({deleted : true})
-                            })
+                            }).catch(err => console.log(err))
                     })
     
-            })
+            }).catch(err => console.log(err))
     }
     
 

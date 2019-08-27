@@ -16,7 +16,7 @@ class PendingOrders extends Component {
         reqHandler.getPendingOrders()
             .then(allPendingOrders => {
                this.setState({pendingOrdersIds : allPendingOrders.map(p => p._id)})
-            })
+            }).catch(err => console.log(err))
     }
     
     render() {

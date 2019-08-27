@@ -39,7 +39,10 @@ class Login extends Component {
                             return this.props.history.push('/catalog')
                         })
                  
-                }).catch(err => console.log(err))
+                }).catch(err => {
+                    observer.trigger(observer.events.notification, { type: 'error', message: "Грешно име или парола. Повторете!" })
+                    setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);  
+                })
 
         }
     }

@@ -40,6 +40,9 @@ class Cart extends Component {
 						this.setState({ orderInfo })
 					})
 			})
+			.catch(err => {
+				console.log(err);
+			})
 	}
 
 	makeOrder(){

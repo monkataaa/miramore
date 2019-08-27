@@ -6,12 +6,29 @@ import reqHandler from '../../utils/reqHandler';
 class Register extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            username :'',
+            password : '',
+            repeatPass : ''
+        };
         this.dataCollector = (e) => {
             this.setState({ [e.target.name]: e.target.value })
         }
         this.submitData = (e) => {
             e.preventDefault()
             console.log("registriram user => ", this.state);
+
+            if (this.state.username === '' || this.state.password === '') {
+                observer.trigger(observer.events.notification, { type: 'error', message: "Име и Парола са задължителни !" })
+                setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);  
+                return
+            } else if (this.state.password !== this.state.repeatPass) {
+                observer.trigger(observer.events.notification, { type: 'error', message: "Некоректно въведена парола" })
+                setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);  
+                return
+            }
+
+
             reqHandler.register(this.state)
             .then((data) => {
                 localStorage.setItem('token', data._kmd.authtoken)
@@ -52,7 +69,7 @@ class Register extends Component {
                 <label>Парола:</label>
                 <input onChange={this.dataCollector} name="password" type="password" /><br/>
                 <label>Повтори Парола:</label>
-                <input name="repeatPass" type="password" /><br/>
+                <input onChange={this.dataCollector} name="repeatPass" type="password" /><br/>
                 <input id="btnRegister" value="Sign Up" type="submit" /><br/>
             </form>
         );

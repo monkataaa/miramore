@@ -1,4 +1,3 @@
-import React from 'react'
 import reqHandler from '../../utils/reqHandler'
 import observer from '../../utils/observer'
 
@@ -20,7 +19,7 @@ const DeleteProductFromOrder = (productInfo) => {
                         })
                 })
 
-        })
+        }).catch(err => console.log(err))
 }
 
 export default DeleteProductFromOrder 

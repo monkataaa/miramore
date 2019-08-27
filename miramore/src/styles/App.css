@@ -38,20 +38,39 @@ input[type=text], [type='password'], select {
     box-sizing: border-box;
 }
 
-.gallery {
+.galleryGlobal {
   position: relative;
-  z-index: 2;
-  padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  margin-left: 75px;
+  margin-top: 48px;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  border-color: rgb(202, 140, 182);
+  float: left;
+  width: 218px;
+}
+
+div.gallery:hover {
+
+}
+
+div.gallery img {
+  width: 200px;
+  height: 190px;
+}
+
+span.price {
+  float: right;
+  margin-right: 20px;
+  color: rgb(163, 44, 125);
+}
+
+div.desc {
+  padding-top: 30px;
+  text-align: center;
 }
 
 .gallery figure {
@@ -72,6 +91,17 @@ input[type=text], [type='password'], select {
 }
 .gallery figure figcaption {
   display: block;
+}
+
+.galleryImg{
+  margin-left: 8px;
+  border-radius: 10px;
+}
+.galleryImg:hover{
+  transform: scale(1.02); 
+}
+.galleryTitle{
+ text-align: center;
 }
 .small {
   color : rgb(116, 33, 78);

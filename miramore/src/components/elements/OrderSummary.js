@@ -42,7 +42,7 @@ class OrderSummary extends Component {
                                 })
                         }
                     })
-            })
+            }).catch(err => console.log(err))
 
     }
 
@@ -54,7 +54,9 @@ class OrderSummary extends Component {
             .then(updatedOrder => {
                 console.log(updatedOrder);
                 this.setState({ status: updatedOrder.status})
-                return this.props.history.push('/orders/pending')
+                observer.trigger(observer.events.notification, { type: 'success', message: "Поръчката беше повтърдена успешно !" })
+                setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);    
+                return <Redirect to='/catalog' />
 
 
             })

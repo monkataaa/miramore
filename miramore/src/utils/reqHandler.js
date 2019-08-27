@@ -93,6 +93,18 @@ let reqHandler = {
             },
         }).then((response) => {return response})
     },
+    getAllOrdersByUser : ()=>{
+        return fetch(`${hostUrl}/appdata/${appKey}/orders?query={"creator":"${localStorage.getItem('userId')}"}&sort={"_kmd.ect": -1}`,{
+            method : "GET",
+            headers: {
+                Authorization: 'Kinvey ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json'
+            },
+        })
+        .then((response) => {
+            return response.json()
+        })
+    },
     createNewOrder : () => {
         return fetch(`${hostUrl}/appdata/${appKey}/orders`,{
             method : 'POST',

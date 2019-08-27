@@ -10,7 +10,7 @@ class Logout extends Component {
             setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);       
             localStorage.clear()
             return this.props.history.push('/')
-        })
+        }).catch(err => console.log(err))
     }
     render() {
         return (<div></div>);

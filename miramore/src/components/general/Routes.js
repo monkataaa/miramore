@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom';
 import Register from '../auth/Register';
 // import {Redirect} from 'react-router-dom'
 import UploadForm from '../elements/UploadForm'
@@ -10,6 +10,8 @@ import DetailedProduct from '../elements/DetailedProduct';
 import Cart from '../elements/Cart';
 import PendingOrders from '../elements/PendingOrders';
 import EditProduct from '../elements/EditProduct';
+import AllOrdersByUser from '../elements/AllOrdersByUser';
+import FilteredOrder from '../elements/FilteredOrder';
 let Routes = () => {
     return (
         <Switch>
@@ -23,6 +25,8 @@ let Routes = () => {
             <Route exact path='/details/:id' component={DetailedProduct}/>
             <Route exact path='/cart' component={Cart}/>
             <Route exact path='/orders/pending' component={PendingOrders}/>
+            <Route exact path='/orders/all' component={AllOrdersByUser}/>
+            <Route exact path='/orders/filtered' component={FilteredOrder}/>
         </Switch>
     )
 }

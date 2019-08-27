@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import './styles/notifications.css';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Routes from './components/general/Routes'
 import Navigation from './components/general/Navigation';
 import Notification from './components/general/Notification'

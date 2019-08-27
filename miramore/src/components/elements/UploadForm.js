@@ -31,7 +31,9 @@ class UploadForm extends Component {
                     <input onChange={this.dataCollector} name="title" type="text"  /><br />
                     <label>Price:</label>
                     <input onChange={this.dataCollector} name="price" type="text" /><br />
-                    <label>Link Image:</label>
+                    <label>Mini Image Link:</label>
+                    <input onChange={this.dataCollector} name="miniImageUrl" type="text"  /><br />
+                    <label>Image Link:</label>
                     <input onChange={this.dataCollector} name="imageUrl" type="text"  /><br />
                     <label>Description:</label>
                     <textarea onChange={this.dataCollector} name="description"  ></textarea><br />

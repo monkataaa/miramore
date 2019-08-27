@@ -30,7 +30,7 @@ class EditProduct extends Component {
         reqHandler.getProductInfo(this.props.match.params.id)
             .then(productDataFromDb => {
                Object.keys(productDataFromDb).forEach(e => this.setState({[e] : productDataFromDb[e] }))
-            })
+            }).catch(err => console.log(err))
     }
 
 
@@ -42,6 +42,8 @@ class EditProduct extends Component {
                     <input onChange={this.dataCollector}  name="title" type="text" value={this.state.title} /><br />
                     <label>Price:</label>
                     <input onChange={this.dataCollector} name="price" type="text"  value={this.state.price}/><br />
+                    <label>Mini Image Link:</label>
+                    <input onChange={this.dataCollector} name="miniImageUrl" type="text"  /><br />
                     <label>Link Image:</label>
                     <input onChange={this.dataCollector} name="imageUrl" type="text"  value={this.state.imageUrl}/><br />
                     <label>Description:</label>
