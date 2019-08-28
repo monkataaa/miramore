@@ -61,6 +61,32 @@ div.gallery:hover {
 .inputField {
   margin-left: 5%;
 }
+.inputField > label {
+  margin-top: 10px;
+  text-align: right;
+  clear: both;
+  float:left;
+  margin-right:15px;
+}
+
+.inputField > input {
+  /* background-color: red; */
+  float: right;
+  width: 200px;
+  height: 10px;
+}
+
+.submitForm > button {
+  /* background-color: red; */
+  float: right;
+
+  position:absolute;
+  bottom:0;
+  right:0;
+  
+}
+
+
 
 div.gallery img {
   width: 189px;
@@ -71,6 +97,29 @@ span.price {
   float: right;
   margin-right: 20px;
   color: rgb(163, 44, 125);
+}
+
+.formStyle{
+  border-radius: 5px;
+    padding: 20px;
+    width: 50em;
+    height: 32em;
+    position: relative;
+}
+
+.submitBtn{
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+form.submitForm{
+  /* color: aqua; */
+     /* color: aqua; */
+     /* width: 350px; */
+     /* height: 200px; */
+     margin-left: 86px;
+     /* margin-top: 38px; */
 }
 
 div.desc {
@@ -144,8 +193,8 @@ input[type=submit] {
     background-color: #45a049;
 } */
 
-.formStyle {
+/* .formStyle {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-}
+} */

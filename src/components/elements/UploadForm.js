@@ -25,40 +25,45 @@ class UploadForm extends Component {
 
     render() {
         return (
-            <div class="submitArea formContainer" onSubmit={this.submitData}>
+            
+            <div class="formStyle"  onSubmit={this.submitData}>
                 <form id="editPostForm" class="submitForm">
                     <div className="inputField">
                         <label>Title:</label>
-                        <input onChange={this.dataCollector} name="title" type="text" /><br />
+                        <input onChange={this.dataCollector} name="title" type="text" />
                     </div>
+                    <br></br>
                     <div className="inputField">
                         <label>Price:</label>
-                        <input onChange={this.dataCollector} name="price" type="text" /><br />
+                        <input onChange={this.dataCollector} name="price" type="text" />
                     </div>
+                    <br></br>
                     <div className="inputField">
                         <label>Mini Image Link:</label>
-                        <input onChange={this.dataCollector} name="miniImageUrl" type="text" /><br />
+                        <input onChange={this.dataCollector} name="miniImageUrl" type="text" />
                     </div>
+                    <br></br>
                     <div className="inputField">
                         <label>Image Link:</label>
-                        <input onChange={this.dataCollector} name="imageUrl" type="text" /><br />
+                        <input onChange={this.dataCollector} name="imageUrl" type="text" />
                     </div>
                     <div className="inputField">
                         <label>Description:</label>
-                        <textarea onChange={this.dataCollector} name="description"  ></textarea><br />
+                        <input onChange={this.dataCollector} name="description" type="text"  ></input><br />
                     </div>
                     <div className="inputField">
                         <label>Category:</label>
-                        <textarea onChange={this.dataCollector} name="category"  ></textarea><br />
+                        <input onChange={this.dataCollector} name="category" type="text"  ></input><br />
                     </div>
 
-                    <div className="inputField">
-                        <input id="btnEditPost" type="submit" value="Upload Product" />
-                    </div>
+                    {/* <div className="inputField"> */}
+                        {/* <input id="btnEditPost" type="submit" value="Upload Product" /> */}
+                    {/* </div> */}
                 </form>
+                        <button type="button" class="btn btn-primary submitBtn">Primary</button>
             </div>
-        );
-    }
-}
-
+                );
+                    }
+                }
+                
 export default UploadForm;
