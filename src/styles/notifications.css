@@ -11,6 +11,9 @@
     font-size: 1.5em;
     color: #ffffff;
     text-align: right;
+    position: absolute;
+    top: 74px;
+    right: 60px;
 }
 
 .notification>span {
