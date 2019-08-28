@@ -22,47 +22,61 @@ class Login extends Component {
                     localStorage.setItem('username', data.username)
                     localStorage.setItem('userId', data._id)
                     observer.trigger(observer.events.notification, { type: 'success', message: "Успешен вход, приятно пазаруване !" })
-                    setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);       
+                    setTimeout(function () { observer.trigger(observer.events.hide) }, 3000);
 
                     reqHandler.getUserData()
                         .then(userData => {
                             if (!userData.order && userData.order === '') {
-                              reqHandler.createNewOrder()
-                                .then(newOrder => {
-                                    reqHandler.updateUserOrders(newOrder._id)
-                                        .then(newUserInfo => {
-                                            console.log('newUSerInfo => ',newUserInfo);
-                                            return this.props.history.push('/catalog')
-                                        })
-                                })
+                                reqHandler.createNewOrder()
+                                    .then(newOrder => {
+                                        reqHandler.updateUserOrders(newOrder._id)
+                                            .then(newUserInfo => {
+                                                console.log('newUSerInfo => ', newUserInfo);
+                                                return this.props.history.push('/catalog')
+                                            })
+                                    })
                             }
                             return this.props.history.push('/catalog')
                         })
-                 
+
                 }).catch(err => {
                     observer.trigger(observer.events.notification, { type: 'error', message: "Грешно име или парола. Повторете!" })
-                    setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);  
+                    setTimeout(function () { observer.trigger(observer.events.hide) }, 3000);
                 })
 
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         observer.trigger(observer.events.notification, { type: 'error', message: "Само регистрирани потребители могат да правят поръчки!" })
-        setTimeout(function(){ observer.trigger(observer.events.hide) }, 3000);    
+        setTimeout(function () { observer.trigger(observer.events.hide) }, 3000);
     }
 
     render() {
         return (
-            <form id="registerForm" className='formStyle' onSubmit={this.submitData}>
-                <h2>Вход в Miramore Online магазин</h2>
-                <label>Потрбител:</label>
-                <input onChange={this.dataCollector} name="username" type="text" /><br />
-                <label>Парола:</label>
-                <input onChange={this.dataCollector} name="password" type="password" /><br />
-                <input id="btnRegister" value="ВХОД" type="submit" /><br />
-                ...още нямаш <Link to='/register'> Регистрация </Link> ?
-            </form>
+            <div class="formStyle" id="registerFormId" onSubmit={this.submitData}>
+                <form  class="submitForm">
+                    <h2>Вход в Miramore Online магазин</h2>
+
+                    <div className="inputField">
+                        <label>Потрбител:</label>
+                        <input onChange={this.dataCollector} name="username" type="text" /><br />
+                    </div>
+
+                    <div className="inputField">
+                        <label>Парола:</label>
+                        <input onChange={this.dataCollector} name="password" type="password" /><br />
+                    </div>
+                    <button type="submit" class="btn btn-success submitBtn">ВХОД</button>
+
+                    {/* <input id="btnRegister" value="ВХОД" type="submit" /><br /> */}
+                    <p>
+
+                    ...още нямаш <Link to='/register'> Регистрация</Link> ?
+                    </p>
+                 </form>
+
+            </div >
         );
     }
 }

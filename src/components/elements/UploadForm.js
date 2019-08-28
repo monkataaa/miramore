@@ -26,8 +26,9 @@ class UploadForm extends Component {
     render() {
         return (
             
-            <div class="formStyle"  onSubmit={this.submitData}>
-                <form id="editPostForm" class="submitForm">
+            <div class="formStyle" id="uploadFormId"  onSubmit={this.submitData}>
+                <form class="submitForm">
+                <h2>Upload product</h2>
                     <div className="inputField">
                         <label>Title:</label>
                         <input onChange={this.dataCollector} name="title" type="text" />
@@ -59,8 +60,8 @@ class UploadForm extends Component {
                     {/* <div className="inputField"> */}
                         {/* <input id="btnEditPost" type="submit" value="Upload Product" /> */}
                     {/* </div> */}
+                        <button type="submit" class="btn btn-primary submitBtn">Primary</button>
                 </form>
-                        <button type="button" class="btn btn-primary submitBtn">Primary</button>
             </div>
                 );
                     }
