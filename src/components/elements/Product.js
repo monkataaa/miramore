@@ -5,14 +5,14 @@ import { BrowserRouter as Route, Link } from 'react-router-dom';
 
 const Product = ({ productData }) => {
     return (
-        <div className="gallery">
-            <p className="galleryTitle">{productData.title}</p>
-            <Link to={`/details/${productData._id}`}>
+        <Link to={`/details/${productData._id}`}>
+            <div className="gallery">
+                <h3 className="galleryTitle">{productData.title}</h3>
                 <img className="galleryImg" src={productData.miniImageUrl} alt="Cinque Terre" />
                 <div className="desc">{productData.description}</div>
                 <span className="price">{productData.price}лв.</span>
-            </Link >
-        </div>
+            </div>
+        </Link >
 
         /* <Link to={`/details/${productData._id}`}>
             <figure className='gallery figure'>
